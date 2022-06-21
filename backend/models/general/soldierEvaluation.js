@@ -4,31 +4,31 @@ const {ObjectId} = mongoose.Schema
 
 const soldierEvaluationSchema = new mongoose.Schema({
     //general info
-    date:{type:Date,ref:'Date'},
-    evalType:{type:ObjectId,ref:'EvalType'},
-    evalTypeDetails:{type:ObjectId,ref:'EvalTypeDetails'},
-    unit:{type:ObjectId,ref:'Unit'},
-    profession:{type:ObjectId,ref:'Profession'},
+    date: Date,
+    evalType: String,
+    evalTypeDetails: String,
+    unit: String,
+    profession: String,
+    soldierId: String,
 
-    //strengths and weaknesses
-    professionLevel:[{type:ObjectId,ref:'ProfessionLevel'}],
-    maritalStatus:{type:ObjectId,ref:'MaritalStatus'},
-    civilianProfession:{type:ObjectId,ref:'CivilianProfession'},
-    education:{type:ObjectId,ref:'Education'},
-    age:{type:ObjectId,ref:'Age'},
-    gender:{type:ObjectId,ref:'Gender'},
-    profile:{type:ObjectId,ref:'Profile'},
-    phoneNum:{type:ObjectId,ref:'PhoneNum'},
+    //mission evaluation
+    missions:[
+        {
+            number: Number,
+            missionDesc: String,
+            missionEval:{ type: Number, min: 1, max: 5 }
+        }
+    ],
 
-    //individual indication
-    bereavedFather:{type:ObjectId,ref:'BereavedFather'},
-    metzachInvestigation:{type:ObjectId,ref:'MetzachInvestigation'},
-    loneSoldier:{type:ObjectId,ref:'LoneSoldier'},
-    onlyChild:{type:ObjectId,ref:'OnlyChild'},
-    bereavedChild:{type:ObjectId,ref:'BereavedChild'},
-    exHostage:{type:ObjectId,ref:'ExHostage'},
-    inYeshiva:{type:ObjectId,ref:'InYeshiva'},
+    //literal evaluation
+    litEval: String,
 
+    //writer info
+    writerId: String,
+    writerRank: String,
+    writerName: String,
+    writerProfession: String,
+    writerDate: Date
 });
 
 const soldierEvaluation = mongoose.model('soldierEvaluation', soldierEvaluationSchema);
