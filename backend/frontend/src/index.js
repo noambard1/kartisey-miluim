@@ -26,7 +26,6 @@ ReactDOM.render(
         <Router history={history}>
           <Switch>
             {routes}
-            {/*<Redirect from="/" to="/signin"/>*/}
           </Switch>
         </Router>
       </BackgroundColorWrapper>
