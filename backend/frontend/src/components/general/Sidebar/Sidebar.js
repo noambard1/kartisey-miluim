@@ -39,7 +39,7 @@ import Logo100_white from 'assets/img/team100_white.png';
 
 import SidebarAdmin from 'components/general/Sidebar/SidebarAdmin';
 import SidebarUnit from 'components/general/Sidebar/SidebarUnit';
-import SidebarCandidate from 'components/general/Sidebar/SidebarCandidate';
+// import SidebarCandidate from 'components/general/Sidebar/SidebarCandidate';
 
 import { signout } from "auth/index";
 
@@ -69,9 +69,7 @@ function Sidebar() {
         <div className="sidebar-wrapper" style={{ overflow: 'hidden' }}>
           {user.role === "0" ? <SidebarAdmin theme={color} /> :
 
-            user.role === "1" ? <SidebarUnit theme={color} /> :
-
-              user.role === "2" ? <SidebarCandidate theme={color} /> : null
+            user.role === "1" ? <SidebarUnit theme={color} /> : null
           }
           <div style={{ textAlign: 'center', position: 'absolute', bottom: 0, width: '100%', marginBottom: '15px' }}>
           {color == 'white' ? <img src={Logo100} style={{ height: "100px" }}></img>

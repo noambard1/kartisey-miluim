@@ -5,7 +5,7 @@ import { BrowserRouter, Router, Route, Switch, Redirect, withRouter } from "reac
 import LoggedinRoute from "auth/LoggedinRoute";
 import UnloggedinRoute from "auth/UnloggedinRoute";
 import AdminRoute from "auth/AdminRoute.js";
-import CandidateRoute from "auth/CandidateRoute";
+// import CandidateRoute from "auth/CandidateRoute";
 import UnitRoute from "auth/UnitRoute";
 
 import SignIn from "views/general/authentication/SignInForm";
@@ -20,10 +20,10 @@ import EditJob from "views/general/adminpages/managejobs/EditJobForm";
 import AdminDashboard from "views/general/adminpages/admindashboard/AdminDashboard";
 import MahzorimPage from "views/general/adminpages/mahzorimpage/MahzorimPage";
 import UnitDashboard from "views/general/unitpages/unitdashboard/UnitDashboard";
-import CandidateDashboard from "views/general/candidatepages/candidatedashboard/CandidateDashboard";
-import CandidatePreferenceForm from "views/general/candidatepages/candidatepreferenceform/CandidatePreferenceForm";
+// import CandidateDashboard from "views/general/candidatepages/candidatedashboard/CandidateDashboard";
+// import CandidatePreferenceForm from "views/general/candidatepages/candidatepreferenceform/CandidatePreferenceForm";
 import MahzorForm from "views/general/adminpages/mahzorform/MahzorForm3";
-import Usermahzorimpage from "views/general/candidatepages/usermahzorimpage/Usermahzorimpage";
+// import Usermahzorimpage from "views/general/candidatepages/usermahzorimpage/Usermahzorimpage";
 import JobsByMahzor from "views/general/JobsByMahzor";
 import JobsByMahzorAndUnit from "views/general/JobsByMahzorAndUnit";
 import DisplayMahzor from "views/general/adminpages/displaymahzor/DisplayMahzor";
@@ -93,11 +93,11 @@ const routesgeneral =
             <UnitRoute path="/unitpreferenceform/:mahzorid/:unitid/:jobid" exact component={UnitPreferenceForm} />
             {/*////////////////////////////////////////Unit User//////////////////////////////////////////////////*/}
 
-            {/*////////////////////////////////////////Candidate User//////////////////////////////////////////////////*/}
-            <CandidateRoute path="/candidatedashboard/:candidateid" exact component={CandidateDashboard} />
+            {/* ////////////////////////////////////////Candidate User//////////////////////////////////////////////////*/}
+            {/* <CandidateRoute path="/candidatedashboard/:candidateid" exact component={CandidateDashboard} />
             <CandidateRoute path="/usermahzorimpage/:userid" exact component={Usermahzorimpage} />
-            <CandidateRoute path="/candidatepreferenceform/:mahzorid/:candidateid" exact component={CandidatePreferenceForm} />
-            {/*////////////////////////////////////////Candidate User//////////////////////////////////////////////////*/}
+            <CandidateRoute path="/candidatepreferenceform/:mahzorid/:candidateid" exact component={CandidatePreferenceForm} /> */}
+            {/*////////////////////////////////////////Candidate User////////////////////////////////////////////////// */}
         </>
     )
 
