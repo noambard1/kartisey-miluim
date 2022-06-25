@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Configure Mongo
-const db = "mongodb://localhost/Kartisey-miluim";
+const db = "mongodb://127.0.0.1/Kartisey-miluim";
 
 // Connect to Mongo with Mongoose
 mongoose.connect(
@@ -39,9 +39,11 @@ app.use('/api', userRoutes)
 //general routes
 const soldierEvaluation = require("./routes/general/soldierEvaluation");
 const soldierInfo = require("./routes/general/soldierInfo");
+const unit = require("./routes/general/unit");
 
 app.use('/api',soldierEvaluation)
 app.use('/api',soldierInfo)
+app.use('/api',unit)
 
 
 if(process.env.NODE_ENV === 'production'){

@@ -28,8 +28,8 @@ export default function SignUpForm() {
     password: "",
     role: "",
     unitid: "",
-    migzar: "",
-    gender: "",
+    // migzar: "",
+    // gender: "",
     cellphone: "",
     rank: "",
     error: false,
@@ -126,8 +126,8 @@ export default function SignUpForm() {
       personalnumber: data.personalnumber,
       unitid: data.unitid,
       role: data.role,
-      migzar: data.migzar,
-      gender: data.gender,
+      // migzar: data.migzar,
+      // gender: data.gender,
       cellphone: data.cellphone,
       rank: data.rank,
     };
@@ -230,7 +230,7 @@ export default function SignUpForm() {
                     />
                   </FormGroup>
 
-                  <div style={{ textAlign: 'right', paddingTop: '10px' }}>מגזר</div>
+                  {/* <div style={{ textAlign: 'right', paddingTop: '10px' }}>מגזר</div>
                     <FormGroup >
                       <Input placeholder="מגזר" type="select" name="migzar" value={data.migzar} onChange={handleChange}>
                         <option value={"בחר"}>בחר</option>
@@ -239,16 +239,16 @@ export default function SignUpForm() {
                         <option value={"חשמל"}>חשמל</option>
                         <option value={'ורסטילי'}>ורסטילי</option>
                       </Input>
-                    </FormGroup>
+                    </FormGroup> */}
 
-                    <div style={{ textAlign: 'right', paddingTop: '10px' }}>מין</div>
+                    {/* <div style={{ textAlign: 'right', paddingTop: '10px' }}>מין</div>
                     <FormGroup >
                       <Input placeholder='מין' type="select" name="gender" value={data.gender} onChange={handleChange}>
                         <option value={"בחר"}>בחר</option>
                         <option value={'זכר'}>זכר</option>
                         <option value={'נקבה'}>נקבה</option>
                       </Input>
-                    </FormGroup>
+                    </FormGroup> */}
 
                     <div style={{ textAlign: 'right', paddingTop: '10px' }}>פלאפון</div>
                     <FormGroup >

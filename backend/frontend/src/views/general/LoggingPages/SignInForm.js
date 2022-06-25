@@ -120,9 +120,10 @@ function Signin() {
             <Card className="shadow border-0">
 
               <CardBody className="px-lg-5 py-lg-5">
-                <div className="text-center text-muted mb-4">
+                {/* לוגו של הפרוייקט */}
+                {/* <div className="text-center text-muted mb-4">
                   <img src={tafkidipedialogo}></img>
-                </div>
+                </div> */}
                 <div className="text-center text-muted mb-4">
                   <small>התחברות</small>
                 </div>
