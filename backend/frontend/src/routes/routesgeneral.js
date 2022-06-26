@@ -1,6 +1,10 @@
 import React from "react";
 import {Route, Redirect} from "react-router-dom";
 
+//Routes
+import AdminRoute from "auth/AdminRoute.js";
+import UserRoute from "auth/UserRoute";
+
 //Admin pages
 import AdminHome from "views/general/adminPages/AdminHome";
 import AdminUpload from "views/general/adminPages/AdminUpload";
@@ -18,15 +22,15 @@ const routesgeneral =
             {/* index to the site */}
             {/* <Redirect from="/" to="/signin"/> */}
             {/* Admin Routes */}
-            <Route path="/adminHome" exact component={AdminHome} />
-            <Route path="/adminUpload" exact component={AdminUpload} />
+            <AdminRoute path="/adminHome" exact component={AdminHome} />
+            <AdminRoute path="/adminUpload" exact component={AdminUpload} />
             {/* Logging Routes */}
             <Route path="/signin" exact component={SignInForm} />
             <Route path="/signup" exact component={SignUpForm} />
             {/* User Routes */}
-            <Route path="/userEval" exact component={UserEval} />
-            <Route path="/userHome" exact component={UserHome} />
-            <Route path="/userInfo" exact component={UserInfo} />
+            <UserRoute path="/userEval" exact component={UserEval} />
+            <UserRoute path="/userHome/:unitid" exact component={UserHome} />
+            <UserRoute path="/userInfo/:unitid" exact component={UserInfo} />
         </>
     )
 

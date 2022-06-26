@@ -71,13 +71,11 @@ function Signin() {
       console.log(user);
       if (user && user.validated == true) {
         if (user.role === "0") {
-          history.push(`/dashboard`);
+          history.push(`/adminHome`);
         }
         if (user.role === "1") {
-          history.push(`/unitdashboard/${user.unitid}`);
-        }
-        if (user.role === "2") {
-          history.push(`/candidatedashboard/${user._id}`);
+          console.log(user.unitid);
+          history.push(`/userHome/${user.unitid}`);
         }
       }
       else {
@@ -104,9 +102,9 @@ function Signin() {
     passport();
   }, [])
 
-  // useEffect(() => {
-  //   clickSubmit();
-  // }, [])
+  useEffect(() => {
+    clickSubmit();
+  }, [])
 
   useEffect(() => {
     setValues({ ...values, password: values.personalnumber });
