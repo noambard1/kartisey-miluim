@@ -19,19 +19,6 @@ import {
 
 const Searchbar = (props) => {
 
-    const [data, setData] = useState({
-        search: ""
-      });
-
-      function handleChange(evt) {
-        const value = evt.target.value;
-        setData({ ...data, [evt.target.name]: value });
-      }
-
-      const clickSubmit = (event) => {
-       console.log(data.search)
-      };
-
     return (
         <div>
             <Row>
@@ -40,16 +27,10 @@ const Searchbar = (props) => {
                     placeholder="חפש"     
                     name="search"     
                     type="string"    
-                    value={data.search}  
-                    onChange={handleChange}
+                    onChange={props.handleChange}
                     dir="rtl"
                     style={{marginTop:"6px"}}/>
-                 </Col>
-                 <Col>
-                    <button onClick={clickSubmit} className="btn">
-                    חפש
-                    </button>
-                 </Col>   
+                 </Col> 
             </Row>
         </div>
     );

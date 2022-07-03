@@ -9,11 +9,15 @@ import { Row ,Col} from "reactstrap";
 
 import Avatar from "../../../assets/img/default-avatar.png"
 import Searchbar from "components/general/Searchbar/Searchbar";
+import UserSelect from "components/general/Select/UserSelect";
 
 function UserHome() {
   const {unitid} = useParams();
 
     const [data, setData] = useState([])
+    const [originaldata, setOriginaldata] = useState([])
+    const [filter, setFilter] = useState({})
+    
   
     function init() {
       console.log({unitid});
@@ -25,21 +29,51 @@ function UserHome() {
         await axios.get(`http://localhost:8000/api/soldierInfoByUnit/${unitid}`)
           .then(response => {
             setData(response.data)
-            console.log(response.data);
+            setOriginaldata(response.data)
           })
           .catch((error) => {
             console.log(error);
-            console.log("here");
           })
       }
       catch {
   
       }
     }
+    const getFilteredUsers = async () => {
+      if(filter.id == "בחר חייל מילואים")
+      {
+        console.log("error");
+
+        setData(originaldata)
+      }
+      else{
+      let myArrayFiltered1 = originaldata.filter((el) => {
+          return filter.id === el._id;
+      });
+      setData(myArrayFiltered1);
+    }
+    }
+    
+      function handleChange(selectedOption) {
+        console.log(selectedOption);
+        // if(selectedOption.value == "בחר חייל מילואים"){
+        //   setFilter({});
+        // }
+        // else{
+          setFilter({ ...filter, id: selectedOption.value });
+        // }
+      }
 
     useEffect(() => {
         init();
       }, []);
+
+      useEffect(() => {
+        getFilteredUsers();
+      }, [filter]);
+
+
+
   return (
     <div style={{width:'60%',margin:"auto"}}>
         <Row>
@@ -50,33 +84,25 @@ function UserHome() {
             <StatisticsCard title ='כמה אנשי מילואים ביחידה' value ='200' />
          </Col>
          <Col>
-            <StatisticsCard title ='כרטיסיות המילואים שהוזנו' value ='50' />
+            <StatisticsCard title ='כרטיסיות המילואים שהוזנו' value = {originaldata.length} />
          </Col>
       </Row>
       <Row>
-        <Col>
-          <Searchbar />
+        <Col style={{direction:"rtl", textAlign:"right"}}>
+          {/* <Searchbar handleChange = {handleChange} /> */}
+          <UserSelect data={originaldata} placeholder={'בחר חייל מילואים'} handle_change={handleChange}/>
         </Col>
       </Row>
-      <Row>
-         <Col>
-             <UserCard img = {Avatar} name= 'יוסי כהן' />
-         </Col>
-         <Col>
-             <UserCard img = {Avatar} name='יוסי כהן' />
-         </Col>
-         <Col>
-             <UserCard img = {Avatar} name='יוסי כהן' />
-         </Col>
-         <Col>
-             <UserCard img = {Avatar} name='יוסי כהן' />
-         </Col>
-         <Col>
-             <UserCard img = {Avatar} name='יוסי כהן' />
-         </Col>
-         <Col>
-             <UserCard img = {Avatar} name='יוסי כהן' />
-         </Col>
+      <Row style={{direction:"rtl"}}>
+      {data ? data.map((soldierInfo, index) => {
+                {
+             return (
+                        <Col xs={12} md={3} >
+                        <UserCard img = {Avatar} name= {soldierInfo.name} />
+                        </Col>
+                    )
+                 }
+         }) : null}
       </Row>
 
     </div>

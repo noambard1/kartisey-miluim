@@ -14,7 +14,7 @@ exports.findById = async(req, res) => {
   var unitId = req.params.id;
   var unitName;
   //change the unitId to the unit id from the database in the unit table
-  if(unitId=="62b810bd51dc4a6e1f42dae5"){
+  if(unitId=="62bbf77cd78458a0ebd40d7e"){
      unitName ="יחידה 1";
   }
   if(unitId=="62b8119751dc4a6e1f42dae7"){
@@ -23,11 +23,18 @@ exports.findById = async(req, res) => {
   if(unitId=="62b855c251dc4a6e1f42daec"){
     unitName ="יחידה 3";
   }
-
-   soldierInfo.find({unit:unitName})
+   soldierInfo.find()
   .then((soldierInfo) => res.json(soldierInfo))
     .catch((err) => res.status(400).json("Error: " + err));
-  
+//   const soldierInfo88 = new soldierInfo({name: "יוסי כהן",unit:"יחידה 2"});
+//   soldierInfo88.save((err, data) => {
+//     if (err) {
+//       return res.status(400).json({
+//         error: err,
+//       });
+//     }
+//     res.json(data);
+//   });
  }
 
 exports.find = (req, res) => {
