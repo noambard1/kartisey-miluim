@@ -6,7 +6,7 @@ const { create, find, update, remove, findById, findByUnitId} = require('../../c
 // find spec 
 router.get('/soldierInfo/:id', findById)
 //find by unit
-router.get('/soldierInfoByUnit/:unitId', findByUnitId)
+router.get('/soldierInfoByUnit/:unitid', findByUnitId)
 //find all
 router.get('/soldierInfo', find)
 //add 

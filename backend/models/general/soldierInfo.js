@@ -4,7 +4,7 @@ const {ObjectId} = mongoose.Schema
 
 const soldierInfoSchema = new mongoose.Schema({
     //general info
-    soldierId: String,
+    personalNum: String,
     rank: String,
     name: String,
     unit: String,

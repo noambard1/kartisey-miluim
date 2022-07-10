@@ -12,6 +12,7 @@ import AdminUpload from "views/general/adminPages/AdminUpload";
 import SignInForm from "views/general/LoggingPages/SignInForm";
 import SignUpForm from "views/general/LoggingPages/SignUpForm";
 //User pages
+import UserEvalForm from "views/general/userPages/UserEvalForm";
 import UserEval from "views/general/userPages/UserEval";
 import UserHome from "views/general/userPages/UserHome";
 import UserInfo from "views/general/userPages/UserInfo";
@@ -28,9 +29,10 @@ const routesgeneral =
             <Route path="/signin" exact component={SignInForm} />
             <Route path="/signup" exact component={SignUpForm} />
             {/* User Routes */}
-            <UserRoute path="/userEval" exact component={UserEval} />
+            <UserRoute path="/userEvalForm/:id" exact component={UserEvalForm} />
+            <UserRoute path="/userEval/:id" exact component={UserEval} />
             <UserRoute path="/userHome/:unitid" exact component={UserHome} />
-            <UserRoute path="/userInfo/:unitid" exact component={UserInfo} />
+            <UserRoute path="/userInfo/:id" exact component={UserInfo} />
         </>
     )
 

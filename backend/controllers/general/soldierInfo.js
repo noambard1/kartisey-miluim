@@ -1,29 +1,26 @@
 const soldierInfo = require("../../models/general/soldierInfo");
 
 exports.findById = async(req, res) => {
-  const soldierInfo = await soldierInfo.findOne().where({_id:req.params.id})
-  
-  if(!soldierInfo){
-      res.status(500).json({success: false})
-  }
-  res.send(soldierInfo)
+   soldierInfo.find({_id:req.params.id})
+  .then((soldierInfo) => res.json(soldierInfo))
+    .catch((err) => res.status(400).json("Error: " + err));
   
  }
 
  exports.findByUnitId = async(req, res) => {
-  var unitId = req.params.id;
-  var unitName;
+  var unitid = req.params.unitid;
+  let unitName;
   //change the unitId to the unit id from the database in the unit table
-  if(unitId=="62bbf77cd78458a0ebd40d7e"){
+  if(unitid=="62bbf77cd78458a0ebd40d7e"){
      unitName ="יחידה 1";
   }
-  if(unitId=="62b8119751dc4a6e1f42dae7"){
+  if(unitid=="62bc2002d78458a0ebd40d97"){
     unitName ="יחידה 2";
   }
-  if(unitId=="62b855c251dc4a6e1f42daec"){
+  if(unitid=="62bc200dd78458a0ebd40d98"){
     unitName ="יחידה 3";
   }
-   soldierInfo.find()
+   soldierInfo.find({unit: unitName})
   .then((soldierInfo) => res.json(soldierInfo))
     .catch((err) => res.status(400).json("Error: " + err));
 //   const soldierInfo88 = new soldierInfo({name: "יוסי כהן",unit:"יחידה 2"});

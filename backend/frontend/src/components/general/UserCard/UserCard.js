@@ -5,7 +5,10 @@ import {
     CardBody,
     Row,
     Col,
+    Button,
 } from "reactstrap";
+import history from 'history.js'
+
 
 // import history from "history";
 
@@ -21,7 +24,7 @@ const UserCard = (props) => {
 
     return (
         // קישור לדף המידע של החייל 
-        <a href="http://localhost:3000/userInfo/:userid">
+        <a href={`http://localhost:3000/userInfo/${props.userId}`}>
             <Card xs={12} lg={2} style={{ borderRadius: '40px', boxShadow: "0 1px 10px 0 rgb(0 0 0 / 10%), 0 1px 10px 0 rgb(0 0 0 / 15%)",display: "flex", marginBottom:"3rem" ,marginLeft: '10px', marginRight: '10px', marginTop: '10px' }}>
                 <CardBody style={{ padding: "0px" }}>
                     <Row style={{ margin: 'auto' }}>

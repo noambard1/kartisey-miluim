@@ -20,7 +20,6 @@ function UserHome() {
     
   
     function init() {
-      console.log({unitid});
         getUserByUnit();
     }
   
@@ -30,6 +29,7 @@ function UserHome() {
           .then(response => {
             setData(response.data)
             setOriginaldata(response.data)
+            console.log(response.data);
           })
           .catch((error) => {
             console.log(error);
@@ -98,7 +98,7 @@ function UserHome() {
                 {
              return (
                         <Col xs={12} md={3} >
-                        <UserCard img = {Avatar} name= {soldierInfo.name} />
+                        <UserCard img = {Avatar} name= {soldierInfo.name} userId = {soldierInfo._id} />
                         </Col>
                     )
                  }
