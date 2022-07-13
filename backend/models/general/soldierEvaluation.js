@@ -4,19 +4,29 @@ const {ObjectId} = mongoose.Schema
 
 const soldierEvaluationSchema = new mongoose.Schema({
     //general info
-    date: Date,
+    date: String,
     evalType: String,
     evalTypeDetails: String,
-    unit: String,
     profession: String,
     soldierId: String,
 
     //mission evaluation
     missions:[
         {
-            number: Number,
+            number: String,
             missionDesc: String,
-            missionEval:{ type: Number, min: 1, max: 5 }
+            missionEval: String
+        }
+    ],
+
+    //professional evaluation
+    profEval:[
+        {
+            findingProblems: String,
+            professional: String,
+            canWorkAlone: String,
+            selfRestraint: String,
+            overAllScore: String
         }
     ],
 
@@ -28,8 +38,8 @@ const soldierEvaluationSchema = new mongoose.Schema({
     writerRank: String,
     writerName: String,
     writerProfession: String,
-    writerDate: Date
-});
+    writerDate: String
+}, {timestamps: true});
 
 const soldierEvaluation = mongoose.model('soldierEvaluation', soldierEvaluationSchema);
 

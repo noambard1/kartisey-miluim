@@ -1,14 +1,11 @@
 const soldierEvaluation = require("../../models/general/soldierEvaluation");
 
 exports.findById = async(req, res) => {
-  const soldierEvaluation = await soldierEvaluation.findOne().where({_id:req.params.id})
-  
-  if(!soldierEvaluation){
-      res.status(500).json({success: false})
-  }
-  res.send(soldierEvaluation)
-  
- }
+  soldierEvaluation.find({_id:req.params.id})
+ .then((soldierEvaluation) => res.json(soldierEvaluation))
+   .catch((err) => res.status(400).json("Error: " + err));
+ 
+}
 
 exports.find = (req, res) => {
     soldierEvaluation.find()

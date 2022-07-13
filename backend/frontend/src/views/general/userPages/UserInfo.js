@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef,  useState, useEffect } from "react";
 import axios from 'axios';
 
 import {  useParams, Link, withRouter, Redirect } from "react-router-dom";
 import { Link as RouterLink } from 'react-router-dom'
 import { Row ,Col} from "reactstrap";
 
-import Avatar from "../../../assets/img/default-avatar.png"
+import Avatar from "../../../assets/img/default-avatar.png";
+import ShamapCard from "components/general/shamapCard/shamapCard";
 
  
 
 function UserInfo() {
   const {id} = useParams();
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [ShamapId, setShamapId] = useState([]);
   
 
   function init() {
@@ -23,6 +25,7 @@ function UserInfo() {
       await axios.get(`http://localhost:8000/api/soldierInfo/${id}`)
         .then(response => {
           setData(response.data[0]);
+          setShamapId(response.data[0].shamapId);
         })
         .catch((error) => {
           console.log(error);
@@ -55,88 +58,114 @@ function UserInfo() {
 
   return (
     <div dir="rtl" style={{textAlign: "Right"}}>
-    <Col>
-    <img src= {Avatar} alt="Avatar" width="80" height="80"/>
-    </Col>
-    <Col>
-        <Row>
-          <Col>
-          <h3>מספר אישי: {data.personalNum}</h3>
-          </Col>
-          <Col>
-          <h3>שלב מקצועי: {data.professionLevel}</h3>
-          </Col>
-          <Col>
-          <h3>אב שכול: {isTrue(data.bereavedFather)}</h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <h3>דרגה: {data.rank}</h3>
-          </Col>
-          <Col>
-          <h3>מצב משפחתי: {data.maritalStatus}</h3>
-          </Col>
-          <Col>
-          <h3>חקירת מצח: {isTrue(data.metzachInvestigation)}</h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <h3>שם: {data.name}</h3>
-          </Col>
-          <Col>
-          <h3>מקצוע אזרחי: {data.civilianProfession}</h3>
-          </Col>
-          <Col>
-          <h3>חייל בודד: {isTrue(data.loneSoldier)}</h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <h3>יחידה: {data.unit}</h3>
-          </Col>
-          <Col>
-          <h3>השכלה: {data.education}</h3>
-          </Col>
-          <Col>
-          <h3>בן יחיד: {isTrue(data.onlyChild)}</h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <h3>כתובת: {data.address}</h3>
-          </Col>
-          <Col>
-          <h3>גיל: {data.age}</h3>
-          </Col>
-          <Col>
-          <h3>בן שכול: {isTrue(data.bereavedChild)}</h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <h3>מקצוע: {data.profession}</h3>
-          </Col>
-          <Col>
-          <h3>מין: {data.gender}</h3>
-          </Col>
-          <Col>
-          <h3>פדוי שבי: {isTrue(data.exHostage)}</h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <h3>פרופיל: {data.profile}</h3>
-          </Col>
-          <Col>
-          <h3>טלפונים: {data.phoneNum}</h3>
-          </Col>
-          <Col>
-          <h3>בניש: {isTrue(data.inYeshiva)}</h3>
-          </Col>
-        </Row>
-    </Col>
+     <Col>
+     <Row>
+      <img src= {Avatar} alt="Avatar" width="120" height="120"/>
+      </Row>
+          <Row style={{paddingRight: "10%"}}>
+            <Col>
+            <h3>מספר אישי: {data.personalNum}</h3>
+            </Col>
+            <Col>
+            <h3>שלב מקצועי: {data.professionLevel}</h3>
+            </Col>
+            <Col>
+            <h3>אב שכול: {isTrue(data.bereavedFather)}</h3>
+            </Col>
+          </Row>
+          <Row style={{paddingRight: "10%"}}>
+            <Col>
+            <h3>דרגה: {data.rank}</h3>
+            </Col>
+            <Col>
+            <h3>מצב משפחתי: {data.maritalStatus}</h3>
+            </Col>
+            <Col>
+            <h3>חקירת מצח: {isTrue(data.metzachInvestigation)}</h3>
+            </Col>
+          </Row>
+          <Row style={{paddingRight: "10%"}}>
+            <Col>
+            <h3>שם: {data.name}</h3>
+            </Col>
+            <Col>
+            <h3>מקצוע אזרחי: {data.civilianProfession}</h3>
+            </Col>
+            <Col>
+            <h3>חייל בודד: {isTrue(data.loneSoldier)}</h3>
+            </Col>
+          </Row>
+          <Row style={{paddingRight: "10%"}}>
+            <Col>
+            <h3>יחידה: {data.unit}</h3>
+            </Col>
+            <Col>
+            <h3>השכלה: {data.education}</h3>
+            </Col>
+            <Col>
+            <h3>בן יחיד: {isTrue(data.onlyChild)}</h3>
+            </Col>
+          </Row>
+          <Row style={{paddingRight: "10%"}}>
+            <Col>
+            <h3>כתובת: {data.address}</h3>
+            </Col>
+            <Col>
+            <h3>גיל: {data.age}</h3>
+            </Col>
+            <Col>
+            <h3>בן שכול: {isTrue(data.bereavedChild)}</h3>
+            </Col>
+          </Row>
+          <Row style={{paddingRight: "10%"}}>
+            <Col>
+            <h3>מקצוע: {data.profession}</h3>
+            </Col>
+            <Col>
+            <h3>מין: {data.gender}</h3>
+            </Col>
+            <Col>
+            <h3>פדוי שבי: {isTrue(data.exHostage)}</h3>
+            </Col>
+          </Row>
+          <Row style={{paddingRight: "10%"}}>
+            <Col>
+            <h3>פרופיל: {data.profile}</h3>
+            </Col>
+            <Col>
+            <h3>טלפונים: {data.phoneNum}</h3>
+            </Col>
+            <Col>
+            <h3>בניש: {isTrue(data.inYeshiva)}</h3>
+            </Col>
+          </Row>
+      </Col>
+      <Row>
+         {ShamapId ? ShamapId.map((shamap, index) => {
+                {
+                  let title;
+                  if(index<3){
+                  if(index == 0){
+                    title = 'שמ"פ השנה'
+                  }
+                  if(index == 1){
+                    title = 'שמ"פ לפני שנה'
+                  }
+                  if(index == 2){
+                    title = 'שמ"פ לפני שנתיים'
+                  }
+                    return (
+                                <Col xs={12} md={4} >
+                                <ShamapCard title={title} eval="0.00" shamapId= {shamap} soldierId = {data.personalNum}/>
+                                </Col>
+                            )
+                  }
+                  else{
+                    return(null)
+                  }
+                 }
+         }) : null}
+      </Row>
     </div>
   );
 }

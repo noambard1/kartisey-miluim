@@ -14,7 +14,7 @@ exports.findById = async(req, res) => {
   if(unitid=="62bbf77cd78458a0ebd40d7e"){
      unitName ="יחידה 1";
   }
-  if(unitid=="62bc2002d78458a0ebd40d97"){
+  if(unitid=="62b8119751dc4a6e1f42dae7"){
     unitName ="יחידה 2";
   }
   if(unitid=="62bc200dd78458a0ebd40d98"){

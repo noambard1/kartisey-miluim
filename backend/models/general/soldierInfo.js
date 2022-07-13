@@ -29,7 +29,7 @@ const soldierInfoSchema = new mongoose.Schema({
     inYeshiva: Boolean,
 
     //miluim summery
-    eval: [Number]
+    shamapId: [ObjectId]
 });
 
 const soldierInfo = mongoose.model('soldierInfo', soldierInfoSchema);
