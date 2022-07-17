@@ -10,7 +10,7 @@ router.get('/soldierEvaluation', find)
 //add 
 router.post('/soldierEvaluation',create); /**/ 
 //update 
-router.put('/soldierEvaluation/:soldierEvaluationId', update)
+router.put('/soldierEvaluation/:id', update)
 //delete 
 router.delete('/soldierEvaluation/:id', remove )
 

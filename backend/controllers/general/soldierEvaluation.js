@@ -14,8 +14,8 @@ exports.find = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  const soldierEvaluation = new soldierEvaluation(req.body);
-  soldierEvaluation.save((err, data) => {
+  let soldierEval = new soldierEvaluation(req.body);
+  soldierEval.save((err, data) => {
     if (err) {
       return res.status(400).json({
         error: err,
@@ -26,7 +26,7 @@ exports.create = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  soldierEvaluation.findByIdAndUpdate(req.params.soldierEvaluationId,req.body)
+  soldierEvaluation.findByIdAndUpdate(req.params.id,req.body)
     .then((soldierEvaluation) => res.json(soldierEvaluation))
     .catch((err) => res.status(400).json("Error: " + err));
 };

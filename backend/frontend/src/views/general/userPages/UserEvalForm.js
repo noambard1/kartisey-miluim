@@ -50,12 +50,13 @@ function UserEvalForm() {
     writerRank:"",
     writerName:"",
     writerProfession:"",
-    writerDate:{today}
+    writerDate:{today},
+    _id:{}
+
   });
   function handleChange(evt) {
     const value = evt.target.value;
     setData({ ...data, [evt.target.name]: value });
-    console.log(data);
   }
 
   const clickSubmit = (event) => {
@@ -148,7 +149,7 @@ function UserEvalForm() {
         evalType: data.evalType,
         evalTypeDetails: data.evalTypeDetails,
         profession: data.profession,
-        soldierId: {soldierId},
+        soldierId: soldierId,
         //mission evaluation
         missions:[
             {
@@ -173,15 +174,15 @@ function UserEvalForm() {
         writerRank: data.writerRank,
         writerName: data.writerName,
         writerProfession: data.writerProfession,
-        writerDate: {today}
+        writerDate: today
     };
     axios
       .post(`http://localhost:8000/api/soldierEvaluation`, evaluation)
       .then((res) => {
-        setData({ ...data, loading: false, error: false, successmsg: true });
+        setData({ ...data, loading: false, error: false, successmsg: true, _id:res.data._id });
         toast.success(`הערכה נשלחה בהצלחה`);
-        history.push(`/userInfo/${soldierId}`);
-        console.log(res.data);
+        // history.push(`/userInfo/${soldierId}`);
+        console.log(data._id);
       })
       .catch((error) => {
         setData({
@@ -190,7 +191,24 @@ function UserEvalForm() {
           loading: false,
           error: true,
         });
+        console.log(error);
       });
+    axios
+     .put(`http://localhost:8000/api/soldierEvaluation/${soldierId}`, {shamapId: data._id})
+     .then((res) => {
+      console.log(`ההערכה נשמרה בהצלחה אצל החייל`);
+      history.push(`/userInfo/${soldierId}`);
+      console.log(res.data);
+    })
+    .catch((error) => {
+      setData({
+        ...data,
+        errortype: error.response.data.error,
+        loading: false,
+        error: true,
+      });
+      console.log(error);
+    });
     };
   return (
     <div style={{width:'80%',margin:'auto'}}>
