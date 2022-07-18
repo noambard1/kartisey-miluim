@@ -24,23 +24,17 @@ function UserEvalForm() {
     soldierId:"",
 
     //mission evaluation
-    missions:[
-        {
-            number: "",
-            missionDesc:"",
-            missionEval:""
-        }
-    ],
+ 
+    number: "",
+    missionDesc:"",
+    missionEval:"",
     //professional evaluation
-    profEval:[
-      {
-          findingProblems: "",
-          professional: "",
-          canWorkAlone: "",
-          selfRestraint: "",
-          overAllScore: ""
-      }
-  ],
+
+    findingProblems: "",
+    professional: "",
+    canWorkAlone: "",
+    selfRestraint: "",
+    overAllScore: "",
 
     //literal evaluation
     litEval:"",
@@ -158,15 +152,12 @@ function UserEvalForm() {
             }
         ],
         //professional evaluation
-        profEval:[
-          {
-              findingProblems:  data.findingProblems,
-              professional:  data.professional,
-              canWorkAlone:  data.canWorkAlone,
-              selfRestraint:  data.selfRestraint,
-              overAllScore:  data.overAllScore
-          }
-      ],
+
+        findingProblems:  data.findingProblems,
+        professional:  data.professional,
+        canWorkAlone:  data.canWorkAlone,
+        selfRestraint:  data.selfRestraint,
+        overAllScore:  data.overAllScore,
         //literal evaluation
         litEval: data.litEval,
         //writer info
@@ -181,8 +172,7 @@ function UserEvalForm() {
       .then((res) => {
         setData({ ...data, loading: false, error: false, successmsg: true, _id:res.data._id });
         toast.success(`הערכה נשלחה בהצלחה`);
-        // history.push(`/userInfo/${soldierId}`);
-        console.log(data._id);
+        addToUserShamap(res.data._id);
       })
       .catch((error) => {
         setData({
@@ -193,22 +183,28 @@ function UserEvalForm() {
         });
         console.log(error);
       });
-    axios
-     .put(`http://localhost:8000/api/soldierEvaluation/${soldierId}`, {shamapId: data._id})
-     .then((res) => {
-      console.log(`ההערכה נשמרה בהצלחה אצל החייל`);
-      history.push(`/userInfo/${soldierId}`);
-      console.log(res.data);
-    })
-    .catch((error) => {
-      setData({
-        ...data,
-        errortype: error.response.data.error,
-        loading: false,
-        error: true,
-      });
-      console.log(error);
-    });
+        const addToUserShamap = async (shamapId) => {
+          try{
+            await axios 
+            .put(`http://localhost:8000/api/soldierInfo/${soldierId}`, {$push: {"shamapId": shamapId}})
+            .then((res) => {
+             console.log(`ההערכה נשמרה בהצלחה אצל החייל`);
+             history.push(`/userInfo/${soldierId}`);
+           })
+           .catch((error) => {
+             setData({
+               ...data,
+               errortype: error.response.data.error,
+               loading: false,
+               error: true,
+             });
+             console.log(error);
+           });
+          }
+          catch {
+
+          }
+        }
     };
   return (
     <div style={{width:'80%',margin:'auto'}}>
@@ -435,9 +431,11 @@ function UserEvalForm() {
               </Row>
               <Row>
                 <Col>
-                  <button onClick={clickSubmit} className="btn">
-                      שליחת דיווח
-                  </button>
+                  <div className="text-center" style={{marginTop:"10px",marginBottom:"10px"}}>
+                    <button onClick={clickSubmit} className="btn">
+                        שליחת דיווח
+                    </button>
+                  </div>
                 </Col>
               </Row>
           </Form>

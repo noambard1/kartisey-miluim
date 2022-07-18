@@ -26,7 +26,7 @@ exports.create = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  soldierEvaluation.findByIdAndUpdate(req.params.id,req.body)
+  soldierEvaluation.findByIdAndUpdate(req.params.id,req.body,{safe: true, upsert: true, new : true})
     .then((soldierEvaluation) => res.json(soldierEvaluation))
     .catch((err) => res.status(400).json("Error: " + err));
 };

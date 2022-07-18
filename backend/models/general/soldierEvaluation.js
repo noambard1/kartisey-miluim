@@ -20,15 +20,12 @@ const soldierEvaluationSchema = new mongoose.Schema({
     ],
 
     //professional evaluation
-    profEval:[
-        {
-            findingProblems: String,
-            professional: String,
-            canWorkAlone: String,
-            selfRestraint: String,
-            overAllScore: String
-        }
-    ],
+
+    findingProblems: String,
+    professional: String,
+    canWorkAlone: String,
+    selfRestraint: String,
+    overAllScore: String,
 
     //literal evaluation
     litEval: String,

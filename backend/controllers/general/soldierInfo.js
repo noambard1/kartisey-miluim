@@ -11,13 +11,13 @@ exports.findById = async(req, res) => {
   var unitid = req.params.unitid;
   let unitName;
   //change the unitId to the unit id from the database in the unit table
-  if(unitid=="62bbf77cd78458a0ebd40d7e"){
+  if(unitid=="62b810bd51dc4a6e1f42dae5"){
      unitName ="יחידה 1";
   }
-  if(unitid=="62bc2002d78458a0ebd40d97"){
+  if(unitid=="62b8119751dc4a6e1f42dae7"){
     unitName ="יחידה 2";
   }
-  if(unitid=="62bc200dd78458a0ebd40d98"){
+  if(unitid=="62b855c251dc4a6e1f42daec"){
     unitName ="יחידה 3";
   }
    soldierInfo.find({unit: unitName})
@@ -53,10 +53,11 @@ exports.create = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  soldierInfo.findByIdAndUpdate(req.params.soldierInfoId,req.body)
+  soldierInfo.findByIdAndUpdate(req.params.soldierInfoId,req.body,{safe: true, upsert: true, new : true})
     .then((soldierInfo) => res.json(soldierInfo))
     .catch((err) => res.status(400).json("Error: " + err));
 };
+
 
 exports.remove = (req, res) => {
     soldierInfo.deleteOne({ _id: req.params.id })

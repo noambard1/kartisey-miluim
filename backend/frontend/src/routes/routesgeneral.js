@@ -30,7 +30,7 @@ const routesgeneral =
             <Route path="/signup" exact component={SignUpForm} />
             {/* User Routes */}
             <UserRoute path="/userEvalForm/:soldierId" exact component={UserEvalForm} />
-            <UserRoute path="/userEval/:id" exact component={UserEval} />
+            <UserRoute path="/userEval/:id/:soldierId" exact component={UserEval} />
             <UserRoute path="/userHome/:unitid" exact component={UserHome} />
             <UserRoute path="/userInfo/:id" exact component={UserInfo} />
         </>

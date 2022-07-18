@@ -8,7 +8,6 @@ import { Link as RouterLink } from 'react-router-dom'
 import { Row ,Col} from "reactstrap";
 
 import Avatar from "../../../assets/img/default-avatar.png";
-import Searchbar from "components/general/Searchbar/Searchbar";
 import UserSelect from "components/general/Select/UserSelect";
 
 function UserHome() {
@@ -89,7 +88,6 @@ function UserHome() {
       </Row>
       <Row>
         <Col style={{direction:"rtl", textAlign:"right"}}>
-          {/* <Searchbar handleChange = {handleChange} /> */}
           <UserSelect data={originaldata} placeholder={'בחר חייל מילואים'} handle_change={handleChange}/>
         </Col>
       </Row>

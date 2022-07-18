@@ -7,6 +7,7 @@ import { Row ,Col} from "reactstrap";
 
 import Avatar from "../../../assets/img/default-avatar.png";
 import ShamapCard from "components/general/shamapCard/shamapCard";
+import history from 'history.js';
 
  
 
@@ -57,7 +58,24 @@ function UserInfo() {
   }, []);
 
   return (
-    <div dir="rtl" style={{textAlign: "Right"}}>
+    <div dir="rtl" style={{textAlign: "Right", marginTop:"10px", marginRight:"2%"}}>
+    <Col>
+       <div className="text-right">
+          <button onClick={() => { 
+          let unitid
+          //change the unitId to the unit id from the database in the unit table
+          if(data.unit == "יחידה 1"){
+            unitid="62b810bd51dc4a6e1f42dae5";
+          }
+          if(data.unit == "יחידה 2"){
+            unitid="62b8119751dc4a6e1f42dae7";
+          }
+          if(data.unit == "יחידה 3"){
+            unitid="62b855c251dc4a6e1f42daec";
+          }
+            history.push(`/userHome/${unitid}`)}} className="btn">חזור</button>
+       </div>
+    </Col>
      <Col>
      <Row>
       <img src= {Avatar} alt="Avatar" width="120" height="120"/>
@@ -156,7 +174,7 @@ function UserInfo() {
                   }
                     return (
                                 <Col xs={12} md={4} >
-                                <ShamapCard title={title} eval="0.00" shamapId= {shamap} soldierId = {data.personalNum}/>
+                                <ShamapCard title={title} eval="0.00" shamapId= {shamap} soldierId = {data._id}/>
                                 </Col>
                             )
                   }
@@ -166,6 +184,11 @@ function UserInfo() {
                  }
          }) : null}
       </Row>
+      <Col>
+          <div className="text-center">
+              <button onClick={() => { history.push(`/userEvalForm/${id}`) }} className="btn">להערכת החייל</button>
+          </div>
+      </Col>
     </div>
   );
 }
