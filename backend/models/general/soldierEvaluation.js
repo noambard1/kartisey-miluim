@@ -13,7 +13,6 @@ const soldierEvaluationSchema = new mongoose.Schema({
     //mission evaluation
     missions:[
         {
-            // number: String,
             missionDesc: String,
             missionEval: String
         }

@@ -58,7 +58,7 @@ function UserInfo() {
   }, []);
 
   return (
-    <div dir="rtl" style={{textAlign: "Right", marginTop:"10px", marginRight:"2%"}}>
+    <div dir="rtl" style={{textAlign: "Right", marginTop:"10px", marginRight:"2%", marginLeft:"2%"}}>
     <Col>
        <div className="text-right">
           <button onClick={() => { 
@@ -162,14 +162,14 @@ function UserInfo() {
          {ShamapId ? ShamapId.map((shamap, index) => {
                 {
                   let title;
-                  if(index<3){
-                  if(index == 0){
+                  if(index>=ShamapId.length-3){//checks if the current evaluation is from the latest 3
+                  if(index == ShamapId.length-1){//if newest evaluation
                     title = 'שמ"פ השנה'
                   }
-                  if(index == 1){
+                  if(index == ShamapId.length-2){//if last evaluation
                     title = 'שמ"פ לפני שנה'
                   }
-                  if(index == 2){
+                  if(index == ShamapId.length-3){//if before 2 evaluations
                     title = 'שמ"פ לפני שנתיים'
                   }
                     return (

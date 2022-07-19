@@ -15,6 +15,17 @@ function UserEvalForm() {
   var yyyy = today.getFullYear();
   today = dd + '/' + mm + '/' + yyyy;
 
+  function changedateformat(val) {
+    const myArray = val.split("-");
+
+    let year = myArray[0];
+    let month = myArray[1];
+    let day = myArray[2];
+
+    let formatteddate = day + "/" + month + "/" + year; 
+    return formatteddate;
+}
+
   const [data, setData] = useState({
     //general info
     date:"",
@@ -49,7 +60,10 @@ function UserEvalForm() {
 
   });
   function handleChange(evt) {
-    const value = evt.target.value;
+    let value = evt.target.value;
+    if(evt.target.name == "date"){
+      value = changedateformat(evt.target.value);
+    }
     setData({ ...data, [evt.target.name]: value });
   }
 
