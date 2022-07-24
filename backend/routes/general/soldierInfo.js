@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router()
 
-const { create, find, update, remove, findById, findByUnitId} = require('../../controllers/general/soldierInfo');
+const { create, find, update, remove, findById, findByUnitName} = require('../../controllers/general/soldierInfo');
 
 // find spec 
 router.get('/soldierInfo/:id', findById)
 //find by unit
-router.get('/soldierInfoByUnit/:unitid', findByUnitId)
+router.get('/soldierInfoByUnit/:unitName', findByUnitName)
 //find all
 router.get('/soldierInfo', find)
 //add 

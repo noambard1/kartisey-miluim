@@ -13,18 +13,18 @@ import UserSelect from "components/general/Select/UserSelect";
 function UserHome() {
   const {unitid} = useParams();
 
-    const [data, setData] = useState([])
-    const [originaldata, setOriginaldata] = useState([])
-    const [filter, setFilter] = useState({})
+    const [data, setData] = useState([]);
+    const [originaldata, setOriginaldata] = useState([]);
+    const [filter, setFilter] = useState({});
     
   
     function init() {
-        getUserByUnit();
+        getUnitName();
     }
   
-    const getUserByUnit = async () => {
+    const getUserByUnit = async (unitName) => {
       try {
-        await axios.get(`http://localhost:8000/api/soldierInfoByUnit/${unitid}`)
+        await axios.get(`http://localhost:8000/api/soldierInfoByUnit/${unitName}`)
           .then(response => {
             setData(response.data)
             setOriginaldata(response.data)
@@ -38,6 +38,21 @@ function UserHome() {
   
       }
     }
+    const getUnitName = async () => {
+      try {
+        await axios.get(`http://localhost:8000/api/unit/${unitid}`)
+          .then(response => {
+             getUserByUnit(response.data.name);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      }
+      catch {
+  
+      }
+    }
+
     const getFilteredUsers = async () => {
       if(filter.id == "בחר חייל מילואים")
       {

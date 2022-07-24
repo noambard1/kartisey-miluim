@@ -7,31 +7,11 @@ exports.findById = async(req, res) => {
   
  }
 
- exports.findByUnitId = async(req, res) => {
-  var unitid = req.params.unitid;
-  let unitName;
-  //change the unitId to the unit id from the database in the unit table
-  if(unitid=="62b810bd51dc4a6e1f42dae5"){
-     unitName ="יחידה 1";
-  }
-  if(unitid=="62b8119751dc4a6e1f42dae7"){
-    unitName ="יחידה 2";
-  }
-  if(unitid=="62b855c251dc4a6e1f42daec"){
-    unitName ="יחידה 3";
-  }
+ exports.findByUnitName = async(req, res) => {
+  var unitName = req.params.unitName;
    soldierInfo.find({unit: unitName})
   .then((soldierInfo) => res.json(soldierInfo))
     .catch((err) => res.status(400).json("Error: " + err));
-//   const soldierInfo88 = new soldierInfo({name: "יוסי כהן",unit:"יחידה 2"});
-//   soldierInfo88.save((err, data) => {
-//     if (err) {
-//       return res.status(400).json({
-//         error: err,
-//       });
-//     }
-//     res.json(data);
-//   });
  }
 
 exports.find = (req, res) => {

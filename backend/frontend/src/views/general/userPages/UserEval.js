@@ -9,8 +9,6 @@ import history from 'history.js';
 
 function UserEval() {
   const {id} = useParams();
-  const {soldierId} = useParams();
-
   const [data, setData] = useState([]);
   const [missions, setMissions] = useState([]);
 
@@ -145,7 +143,7 @@ const getUserEval = async () => {
           </Row>
           <Col>
           <div className="text-center" style={{marginTop:"10px",marginBottom:"10px"}}>
-              <button onClick={() => { history.push(`/userInfo/${soldierId}`) }} className="btn">חזור</button>
+              <button onClick={history.goBack} className="btn">חזור</button>
           </div>
           </Col>
         </div>

@@ -26,7 +26,7 @@ const ShamapCard = (props) => {
 
     return (
         // קישור לשמ"פ 
-        <a href={`http://localhost:3000/userEval/${props.shamapId}/${props.soldierId}`}>
+        <a href={`http://localhost:3000/userEval/${props.shamapId}`}>
             <Card xs={12} lg={4} style={{ borderRadius: '40px', boxShadow: "0 1px 10px 0 rgb(0 0 0 / 10%), 0 1px 10px 0 rgb(0 0 0 / 15%)",display: "flex", marginBottom:"3rem" ,marginLeft: '10px', marginRight: '10px', marginTop: '10px' }}>
                 <CardBody style={{ padding: "0px" }}>
                     <Row style={{ margin: 'auto' }}>

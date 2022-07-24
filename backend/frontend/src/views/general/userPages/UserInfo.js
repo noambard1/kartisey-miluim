@@ -13,13 +13,12 @@ import history from 'history.js';
 
 function UserInfo() {
   const {id} = useParams();
-
   const [data, setData] = useState([]);
   const [ShamapId, setShamapId] = useState([]);
   
 
   function init() {
-      getUserInfo();
+    getUserInfo();
   }
   const getUserInfo = async () => {
     try {
@@ -61,19 +60,7 @@ function UserInfo() {
     <div dir="rtl" style={{textAlign: "Right", marginTop:"10px", marginRight:"2%", marginLeft:"2%"}}>
     <Col>
        <div className="text-right">
-          <button onClick={() => { 
-          let unitid
-          //change the unitId to the unit id from the database in the unit table
-          if(data.unit == "יחידה 1"){
-            unitid="62b810bd51dc4a6e1f42dae5";
-          }
-          if(data.unit == "יחידה 2"){
-            unitid="62b8119751dc4a6e1f42dae7";
-          }
-          if(data.unit == "יחידה 3"){
-            unitid="62b855c251dc4a6e1f42daec";
-          }
-            history.push(`/userHome/${unitid}`)}} className="btn">חזור</button>
+          <button onClick={history.goBack} className="btn">חזור</button>
        </div>
     </Col>
      <Col>
@@ -174,7 +161,7 @@ function UserInfo() {
                   }
                     return (
                                 <Col xs={12} md={4} >
-                                <ShamapCard title={title} eval="0.00" shamapId= {shamap} soldierId = {data._id}/>
+                                <ShamapCard title={title} eval="0.00" shamapId= {shamap}/>
                                 </Col>
                             )
                   }

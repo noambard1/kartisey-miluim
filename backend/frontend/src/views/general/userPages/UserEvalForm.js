@@ -203,7 +203,7 @@ function UserEvalForm() {
             .put(`http://localhost:8000/api/soldierInfo/${soldierId}`, {$push: {"shamapId": shamapId}})
             .then((res) => {
              console.log(`ההערכה נשמרה בהצלחה אצל החייל`);
-             history.push(`/userInfo/${soldierId}`);
+             history.goBack();
            })
            .catch((error) => {
              setData({
