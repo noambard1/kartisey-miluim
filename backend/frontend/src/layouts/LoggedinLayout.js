@@ -1,7 +1,7 @@
 import React from "react";
 
 // core components
-import Sidebar from "components/general/Sidebar/Sidebar.js";
+// import Sidebar from "components/general/Sidebar/Sidebar.js";
 import WorkplanNavbar from "components/general/Navbars/WorkplanNavbar.js";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 import { ThemeContext } from "contexts/ThemeContext";
@@ -14,15 +14,10 @@ function LoggedinLayout({ component: Component, ...rest }) {
         <ThemeContext.Consumer>
         {({ changeTheme, theme }) => (
                 <React.Fragment>
-                    <div className="wrapper">
-                        <Sidebar rtlActive theme={theme}/>
-                        <div className="main-panel">
                             <WorkplanNavbar theme={theme}/>
-                            <div className="content" style={{ direction: 'rtl' }}>
+                            <div className="content">
                                 <Component {...rest} theme={theme}/>
                             </div>
-                        </div>
-                    </div>
                 </React.Fragment>
             )}
         </ThemeContext.Consumer>

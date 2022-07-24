@@ -446,6 +446,9 @@ function UserEvalForm() {
               <Row>
                 <Col>
                   <div className="text-center" style={{marginTop:"10px",marginBottom:"10px"}}>
+                    {/* <button onClick={() => { history.push(`/userInfo/${soldierId}`) }} className="btn">
+                        ביטול
+                    </button> */}
                     <button onClick={clickSubmit} className="btn">
                         שליחת דיווח
                     </button>
