@@ -39,12 +39,9 @@ const getUserEval = async () => {
   return (
     <div style={{width:'90%',margin:'auto'}}>
         <div style={{width: "100%"}}>
-          <Row style={{textAlign:"right"}}>
+          <Row style={{textAlign:"center"}}>
               <Col dir="rtl">
                 <h3>תפקיד ביחידה: {data.profession}</h3>
-              </Col>
-              <Col dir="rtl">
-                <h3>סוג שמ"פ-פירוט: {data.evalTypeDetails}</h3>
               </Col>
               <Col dir="rtl">
                 <h3>סוג שמ"פ: {data.evalType}</h3>
@@ -52,6 +49,13 @@ const getUserEval = async () => {
               <Col dir="rtl">
                 <h3>מועד שמ"פ: {data.date}</h3>
               </Col>
+          </Row>
+          <Row style={{textAlign:"right"}}>
+            <Col dir="rtl">
+                <h3>סוג שמ"פ-פירוט: {data.evalTypeDetails}</h3>
+            </Col>
+          </Row>
+          <Row style={{textAlign:"center"}}>
             <Table bordered>
               <thead>
                 <tr>
@@ -71,7 +75,7 @@ const getUserEval = async () => {
                                 <td>
                                   {mission.missionDesc}
                                 </td>
-                                <th scope="row">1</th>
+                                <th scope="row">{index+1}</th>
                               </tr>
                             </tbody>
                           )
@@ -79,7 +83,7 @@ const getUserEval = async () => {
                   }) : null}
             </Table>
             <Col>
-            <h3 style={{textAlign:"right"}}>הערכה מקצועית (1-5) 2-נמוך ביותר 5-גבוה ביותר 1-לא רלוונטי</h3>
+            <h3 style={{textAlign:"right",marginBottom: "0px"}}>הערכה מקצועית (1-5) 2-נמוך ביותר 5-גבוה ביותר 1-לא רלוונטי</h3>
             </Col>
             <Table bordered>
             <thead>

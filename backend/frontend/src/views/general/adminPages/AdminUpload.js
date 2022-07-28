@@ -247,11 +247,11 @@ function AdminUpload() {
   }
 
   return (
-    <div style={{ width: '95%', marginRight: 'auto', marginLeft: 'auto' }}>
+    <div style={{ width: '95%', marginRight: 'auto', marginLeft: 'auto', marginTop: '2%'}}>
       <form>
         <FormGroup row>
           <Label for="exampleFile" xs={6} sm={4} lg={2} size="lg">Upload</Label>
-          <Col xs={4} sm={8} lg={10}>
+          <Col xs={2} sm={6} lg={8}>
             <InputGroup>
               <InputGroupAddon addonType="prepend">
                 <Button color="info" style={{ color: "white", zIndex: 0 }} onClick={openFileBrowser}><i className="cui-file"></i> Browse&hellip;</Button>
@@ -276,8 +276,9 @@ function AdminUpload() {
             </div>
           </Card>
         </div>}
-
-      <Button onClick={() => SubmitUsers()}>הכנס משתמשים למסד הנתונים</Button>
+      <div style={{textAlign: "center"}}>
+      <Button onClick={() => SubmitUsers()}>הכנס חיילים למסד הנתונים</Button>
+      </div>
     </div>
   );
 }

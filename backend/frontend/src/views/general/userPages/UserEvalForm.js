@@ -35,8 +35,6 @@ function UserEvalForm() {
     soldierId:"",
 
     //mission evaluation
- 
-    number: "",
     missionDesc:"",
     missionEval:"",
     //professional evaluation
@@ -227,7 +225,7 @@ function UserEvalForm() {
             <Row>
               <Col style={{textAlign: "right"}}>
               <FormGroup dir="rtl">
-                    <h3>תפקיד ביחידה</h3>
+                    <h3 style={{marginBottom: "0px"}}>תפקיד ביחידה</h3>
                     <Input type="select" name="profession" onChange={handleChange}>
                     <option value={"בחר"}>בחר</option>
                         <option value={'תפקיד 1'}>תפקיד 1</option>
@@ -241,13 +239,7 @@ function UserEvalForm() {
               </Col>
               <Col style={{textAlign: "right"}}>
               <FormGroup dir="rtl">
-                    <h3>סוג שמ"פ-פירוט</h3>
-                    <Input type="string" name="evalTypeDetails" onChange={handleChange}/>
-              </FormGroup>
-              </Col>
-              <Col style={{textAlign: "right"}}>
-              <FormGroup dir="rtl">
-                    <h3>סוג שמ"פ</h3>
+                    <h3 style={{marginBottom: "0px"}}>סוג שמ"פ</h3>
                     <Input type="select" name="evalType" onChange={handleChange}>
                     <option value={"בחר"}>בחר</option>
                         <option value={'אפשרות 1'}>אפשרות 1</option>
@@ -261,8 +253,16 @@ function UserEvalForm() {
               </Col>
               <Col style={{textAlign: "right"}}>
               <FormGroup dir="rtl">
-                    <h3>מועד שמ"פ</h3>
+                    <h3 style={{marginBottom: "0px"}}>מועד שמ"פ</h3>
                     <Input type="date" name="date" onChange={handleChange}/>
+              </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+            <Col style={{textAlign: "right"}}>
+              <FormGroup dir="rtl">
+                    <h3 style={{marginBottom: "0px"}}>סוג שמ"פ-פירוט</h3>
+                    <Input type="string" name="evalTypeDetails" onChange={handleChange}/>
               </FormGroup>
               </Col>
             </Row>
@@ -297,7 +297,7 @@ function UserEvalForm() {
                   </tr>
                 </tbody>
               </Table>
-              <h3 style={{textAlign: "right"}}>הערכה מקצועית (1-5) 2-נמוך ביותר 5-גבוה ביותר 1-לא רלוונטי</h3>
+              <h3 style={{textAlign: "right", marginBottom: "0px"}}>הערכה מקצועית (1-5) 2-נמוך ביותר 5-גבוה ביותר 1-לא רלוונטי</h3>
               <Table bordered>
                   <thead>
                     <tr>
@@ -398,13 +398,13 @@ function UserEvalForm() {
               <Row>
                 <Col style={{textAlign: "right"}}>
                   <FormGroup dir="rtl">
-                        <h3>תאריך מילוי</h3>
+                        <h3 style={{marginBottom: "0px"}}>תאריך מילוי</h3>
                         <Input type="string" name="writerDate" value={today} onChange={handleChange} disabled/>
                   </FormGroup>
                 </Col>
                 <Col style={{textAlign: "right"}}>
                   <FormGroup dir="rtl">
-                        <h3>תפקיד המעריך</h3>
+                        <h3 style={{marginBottom: "0px"}}>תפקיד המעריך</h3>
                         <Input type="select" name="writerProfession" onChange={handleChange}>
                         <option value={"בחר"}>בחר</option>
                         <option value={'תפקיד 1'}>תפקיד 1</option>
@@ -418,13 +418,13 @@ function UserEvalForm() {
                 </Col>
                 <Col style={{textAlign: "right"}}>
                   <FormGroup dir="rtl">
-                        <h3>שם המעריך</h3>
+                        <h3 style={{marginBottom: "0px"}}>שם המעריך</h3>
                         <Input type="string" name="writerName" onChange={handleChange}/>
                   </FormGroup>
                 </Col>
                 <Col style={{textAlign: "right"}}>
                   <FormGroup dir="rtl">
-                        <h3>דרגת המעריך</h3>
+                        <h3 style={{marginBottom: "0px"}}>דרגת המעריך</h3>
                         <Input type="select" name="writerRank" onChange={handleChange}>
                           <option value={"בחר"}>בחר</option>
                         <option value={'דרגה 1'}>דרגה 1</option>
@@ -438,7 +438,7 @@ function UserEvalForm() {
                 </Col>
                 <Col style={{textAlign: "right"}}>
                   <FormGroup dir="rtl">
-                        <h3>מ.א. המעריך</h3>
+                        <h3 style={{marginBottom: "0px"}}>מ.א. המעריך</h3>
                         <Input type="string" name="writerId" onChange={handleChange}/>
                   </FormGroup>
                 </Col>
