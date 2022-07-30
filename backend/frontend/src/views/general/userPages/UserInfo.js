@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import {  useParams, Link, withRouter, Redirect } from "react-router-dom";
 import { Link as RouterLink } from 'react-router-dom'
-import { Row, Col, Card, CardBody,} from "reactstrap";
+import { Row, Col, Card, CardBody} from "reactstrap";
 
 import Avatar from "../../../assets/img/default-avatar.png";
 import ShamapCard from "components/general/shamapCard/shamapCard";
