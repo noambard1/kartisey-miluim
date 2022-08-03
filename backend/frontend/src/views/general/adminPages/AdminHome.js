@@ -68,7 +68,7 @@ function AdminHome() {
       <h1>סה"כ</h1>
       <Row>
          <Col>
-            <StatisticsCard title ='שמפים פתוחים ביחידה' value ='100' />
+            <StatisticsCard title ={<span>שמפים פתוחים <br/> ביחידה</span>} value ='100' />
          </Col>
          <Col>
             <StatisticsCard title ='כמה אנשי מילואים ביחידה' value ='200' />
@@ -80,7 +80,7 @@ function AdminHome() {
       <h1>פיקוד צפון</h1>
       <Row>
          <Col>
-            <StatisticsCard title ='שמפים פתוחים ביחידה' value ='100' />
+            <StatisticsCard title ={<span>שמפים פתוחים <br/> ביחידה</span>} value ='100' />
          </Col>
          <Col>
             <StatisticsCard title ='כמה אנשי מילואים ביחידה' value ='200' />
@@ -92,7 +92,7 @@ function AdminHome() {
       <h1>פיקוד דרום</h1>
       <Row>
          <Col>
-            <StatisticsCard title ='שמפים פתוחים ביחידה' value ='100' />
+            <StatisticsCard title ={<span>שמפים פתוחים <br/> ביחידה</span>} value ='100' />
          </Col>
          <Col>
             <StatisticsCard title ='כמה אנשי מילואים ביחידה' value ='200' />
@@ -104,7 +104,7 @@ function AdminHome() {
       <h1>פיקוד מרכז</h1>
       <Row>
          <Col>
-            <StatisticsCard title ='שמפים פתוחים ביחידה' value ='100' />
+            <StatisticsCard title ={<span>שמפים פתוחים <br/> ביחידה</span>} value ='100' />
          </Col>
          <Col>
             <StatisticsCard title ='כמה אנשי מילואים ביחידה' value ='200' />
@@ -116,7 +116,7 @@ function AdminHome() {
       <h1>זרוע היבשה</h1>
       <Row>
          <Col>
-            <StatisticsCard title ='שמפים פתוחים ביחידה' value ='100' />
+            <StatisticsCard title ={<span>שמפים פתוחים <br/> ביחידה</span>} value ='100' />
          </Col>
          <Col>
             <StatisticsCard title ='כמה אנשי מילואים ביחידה' value ='200' />

@@ -92,7 +92,7 @@ function UserHome() {
     <div style={{width:'60%',margin:"auto"}}>
         <Row>
          <Col>
-            <StatisticsCard title ='שמפים פתוחים ביחידה' value ='100' />
+            <StatisticsCard title = {<span>שמפים פתוחים <br/> ביחידה</span>} value ='100' />
          </Col>
          <Col>
             <StatisticsCard title ='כמה אנשי מילואים ביחידה' value ='200' />

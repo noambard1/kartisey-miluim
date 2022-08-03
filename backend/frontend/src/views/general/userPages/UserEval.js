@@ -41,13 +41,13 @@ const getUserEval = async () => {
         <div style={{width: "100%"}}>
           <Row style={{textAlign:"center"}}>
               <Col dir="rtl">
-                <h3>תפקיד ביחידה: {data.profession}</h3>
+                <h3>מועד שמ"פ: {data.date}</h3>
               </Col>
               <Col dir="rtl">
                 <h3>סוג שמ"פ: {data.evalType}</h3>
               </Col>
               <Col dir="rtl">
-                <h3>מועד שמ"פ: {data.date}</h3>
+                <h3>תפקיד ביחידה: {data.profession}</h3>
               </Col>
           </Row>
           <Row style={{textAlign:"right"}}>
@@ -59,9 +59,9 @@ const getUserEval = async () => {
             <Table bordered>
               <thead>
                 <tr>
-                  <th>איכות הביצוע (1-5) 1-נמוך ביותר 5- גבוה ביותר</th>
-                  <th>תיאור מטלה</th>
                   <th>מספר</th>
+                  <th>תיאור מטלה</th>
+                  <th>איכות הביצוע (1-5) 1-נמוך ביותר 5- גבוה ביותר</th>
                 </tr>
               </thead>
               {missions ? missions.map((mission, index) => {
@@ -69,13 +69,13 @@ const getUserEval = async () => {
                   return (
                             <tbody>
                               <tr>
-                                <td>
-                                  {mission.missionEval}
-                                </td>
+                                <th scope="row">{index+1}</th>
                                 <td>
                                   {mission.missionDesc}
                                 </td>
-                                <th scope="row">{index+1}</th>
+                                <td>
+                                  {mission.missionEval}
+                                </td>
                               </tr>
                             </tbody>
                           )
@@ -88,29 +88,29 @@ const getUserEval = async () => {
             <Table bordered>
             <thead>
                 <tr>
-                    <th>ציון כולל (0-10)</th>
-                    <th>בעל משמעת עצמית</th>
-                    <th>יכולת עבודה עצמאית</th>
-                    <th>מקצועי בתחומו</th>
                     <th>יכולת איתור תקלות</th>
+                    <th>מקצועי בתחומו</th>
+                    <th>יכולת עבודה עצמאית</th>
+                    <th>בעל משמעת עצמית</th>
+                    <th>ציון כולל (0-10)</th>
                 </tr>
              </thead>
              <tbody>
                   <tr>
                     <td>
-                        {data.overAllScore}
-                    </td>
-                    <td>
-                        {data.selfRestraint}
-                    </td>
-                    <td>
-                        {data.canWorkAlone}
+                        {data.findingProblems}
                     </td>
                     <td>
                         {data.professional}
                     </td>
                     <td>
-                        {data.findingProblems}
+                        {data.canWorkAlone}
+                    </td>
+                    <td>
+                        {data.selfRestraint}
+                    </td>
+                    <td>
+                        {data.overAllScore}
                     </td>
                   </tr>
              </tbody>
@@ -130,26 +130,21 @@ const getUserEval = async () => {
                  </tbody>
             </Table>
               <Col dir="rtl">
-                <h3>תאריך מילוי: {data.writerDate}</h3>
+                <h3>מ.א. המעריך:<br/> {data.writerId}</h3>
               </Col>
               <Col dir="rtl">
-                <h3>תפקיד המעריך: {data.writerProfession}</h3>
+                <h3>דרגת המעריך:<br/> {data.writerRank}</h3>
               </Col>
               <Col dir="rtl">
-                <h3>שם המעריך: {data.writerName}</h3>
+                <h3>שם המעריך:<br/> {data.writerName}</h3>
               </Col>
               <Col dir="rtl">
-                <h3>דרגת המעריך: {data.writerRank}</h3>
+                <h3>תפקיד המעריך:<br/> {data.writerProfession}</h3>
               </Col>
               <Col dir="rtl">
-                <h3>מ.א. המעריך: {data.writerId}</h3>
+                <h3>תאריך מילוי:<br/> {data.writerDate}</h3>
               </Col>
           </Row>
-          <Col>
-          <div className="text-center" style={{marginTop:"10px",marginBottom:"10px"}}>
-              <button onClick={history.goBack} className="btn">חזור</button>
-          </div>
-          </Col>
         </div>
     </div>
   );

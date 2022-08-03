@@ -58,11 +58,6 @@ function UserInfo() {
 
   return (
     <div dir="rtl" style={{textAlign: "Right", marginTop:"10px", marginRight:"2%", marginLeft:"2%"}}>
-    <Col>
-       <div className="text-right">
-          <button onClick={history.goBack} className="btn">חזור</button>
-       </div>
-    </Col>
          <Row>
           <Col xs={12} md={3}>
           <Card  style={{width: '17rem', paddingRight: "5%", paddingTop: "1rem", paddingBottom: "4rem", borderRadius: '40px', boxShadow: "0 1px 10px 0 rgb(0 0 0 / 10%), 0 1px 10px 0 rgb(0 0 0 / 15%)",display: "flex", marginBottom:"3rem" ,marginLeft: '10px', marginRight: '10px', marginTop: '10px'}}>
@@ -81,7 +76,7 @@ function UserInfo() {
           </Card>
           </Col>
           <Col xs={12} md={9}>
-          <Card  style={{width: '68rem', paddingRight: "5%", paddingTop: "1rem", borderRadius: '40px', boxShadow: "0 1px 10px 0 rgb(0 0 0 / 10%), 0 1px 10px 0 rgb(0 0 0 / 15%)",display: "flex", marginBottom:"3rem" ,marginLeft: '10px', marginRight: '10px', marginTop: '10px'}}>
+          <Card style={{width: '54rem', paddingRight: "5%", paddingTop: "1rem", borderRadius: '40px', boxShadow: "0 1px 10px 0 rgb(0 0 0 / 10%), 0 1px 10px 0 rgb(0 0 0 / 15%)",display: "flex", marginBottom:"3rem" ,marginLeft: '10px', marginRight: '10px', marginTop: '10px'}}>
           <Row>
             <Col>
             <h3>מין: {data.gender}</h3>

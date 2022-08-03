@@ -23,17 +23,17 @@ import tafkidipedialogo from "assets/img/tafkidipedialogo.png";
 import home from "assets/img/home3.png";
 import home_white from "assets/img/home3_white.png";
 
-import table from "assets/img/table.png";
-import table_white from "assets/img/table_white.png";
+// import table from "assets/img/table.png";
+// import table_white from "assets/img/table_white.png";
 
-import people from "assets/img/people.png";
-import people_white from "assets/img/people_white.png";
+// import people from "assets/img/people.png";
+// import people_white from "assets/img/people_white.png";
 
-import editusers from "assets/img/editusers.png";
-import editusers_white from "assets/img/editusers_white.png";
+// import editusers from "assets/img/editusers.png";
+// import editusers_white from "assets/img/editusers_white.png";
 
-import shortlist from "assets/img/shortlist.png";
-import shortlist_white from "assets/img/shortlist_white.png";
+// import shortlist from "assets/img/shortlist.png";
+// import shortlist_white from "assets/img/shortlist_white.png";
 
 import { signout } from "auth/index";
 import history from "../../../history";
@@ -76,7 +76,7 @@ function SidebarAdmin(props) {
       </div>
       <Nav style={{ textAlign: "right" }}>
         <li>
-          <NavLink to="/dashboard" style={{ margin: '0px' }} activeClassName="sidebar_active_link">
+          <NavLink to="/adminHome" style={{ margin: '0px' }} activeClassName="sidebar_active_link">
             <Row style={{ direction: "rtl" }}>
               <Col xs={12} md={3} style={{ paddingLeft: "0px", textAlign: 'center', alignSelf: 'center' }}>
                 {props.theme == 'white' ? <img src={home} style={{ height: "20px" }}></img>
@@ -90,7 +90,7 @@ function SidebarAdmin(props) {
             </Row>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/mahzorimpage" style={{ margin: '0px' }} activeClassName="sidebar_active_link">
             <Row style={{ direction: "rtl" }}>
               <Col xs={12} md={3} style={{ paddingLeft: "0px", textAlign: 'center', alignSelf: 'center' }}>
@@ -149,7 +149,7 @@ function SidebarAdmin(props) {
               </Col>
             </Row>
           </NavLink>
-        </li>
+        </li> */}
       </Nav>
     </>
   );

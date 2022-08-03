@@ -9,7 +9,7 @@ const UserRoute = ({component: Component, ...rest}) => (
     {...rest}
     render ={ props =>
         isAuthenticated() && (isAuthenticated().user.validated===true) && isAuthenticated().user.role === "1" ? (
-            <Route component={Component}/>
+            <LoggedinLayout component={Component}/>
         ) : (
             <Redirect to = {{
                 pathname:"signin",

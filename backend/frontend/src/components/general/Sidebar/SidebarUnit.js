@@ -23,11 +23,11 @@ import tafkidipedialogo from "assets/img/tafkidipedialogo.png";
 import home from "assets/img/home3.png";
 import home_white from "assets/img/home3_white.png";
 
-import table from "assets/img/table.png";
-import table_white from "assets/img/table_white.png";
+// import table from "assets/img/table.png";
+// import table_white from "assets/img/table_white.png";
 
-import people from "assets/img/people.png";
-import people_white from "assets/img/people_white.png";
+// import people from "assets/img/people.png";
+// import people_white from "assets/img/people_white.png";
 
 import { signout } from "auth/index";
 import history from "../../../history";
@@ -71,7 +71,7 @@ function SidebarUnit(props) {
       </div>
       <Nav style={{ textAlign: "right" }}>
         <li>
-          <NavLink to={`/unitdashboard/${user.unitid}`} style={{ margin: '0px' }} activeClassName="sidebar_active_link">
+          <NavLink to={`/userHome/${user.unitid}`} style={{ margin: '0px' }} activeClassName="sidebar_active_link">
             <Row style={{ direction: "rtl" }}>
               <Col xs={12} md={3} style={{ paddingLeft: "0px", textAlign: 'center', alignSelf: 'center' }}>
                 {props.theme == 'white' ? <img src={home} style={{ height: "20px" }}></img>
@@ -85,7 +85,7 @@ function SidebarUnit(props) {
             </Row>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to={`/unitmahzorimpage/${user.unitid}`} style={{ margin: '0px' }} activeClassName="sidebar_active_link">
             <Row style={{ direction: "rtl" }}>
               <Col xs={12} md={3} style={{ paddingLeft: "0px", textAlign: 'center', alignSelf: 'center' }}>
@@ -114,7 +114,7 @@ function SidebarUnit(props) {
               </Col>
             </Row>
           </NavLink>
-        </li>
+        </li> */}
       </Nav>
     </>
   );

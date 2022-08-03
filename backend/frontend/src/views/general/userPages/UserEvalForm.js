@@ -225,16 +225,8 @@ function UserEvalForm() {
             <Row>
               <Col style={{textAlign: "right"}}>
               <FormGroup dir="rtl">
-                    <h3 style={{marginBottom: "0px"}}>תפקיד ביחידה</h3>
-                    <Input type="select" name="profession" onChange={handleChange}>
-                    <option value={"בחר"}>בחר</option>
-                        <option value={'תפקיד 1'}>תפקיד 1</option>
-                        <option value={'תפקיד 2'}>תפקיד 2</option>
-                        <option value={'תפקיד 3'}>תפקיד 3</option>
-                        <option value={'תפקיד 4'}>תפקיד 4</option>
-                        <option value={'תפקיד 5'}>תפקיד 5</option>
-                        <option value={'תפקיד 6'}>תפקיד 6</option>
-                    </Input>
+                    <h3 style={{marginBottom: "0px"}}>מועד שמ"פ</h3>
+                    <Input type="date" name="date" onChange={handleChange}/>
               </FormGroup>
               </Col>
               <Col style={{textAlign: "right"}}>
@@ -253,8 +245,16 @@ function UserEvalForm() {
               </Col>
               <Col style={{textAlign: "right"}}>
               <FormGroup dir="rtl">
-                    <h3 style={{marginBottom: "0px"}}>מועד שמ"פ</h3>
-                    <Input type="date" name="date" onChange={handleChange}/>
+                    <h3 style={{marginBottom: "0px"}}>תפקיד ביחידה</h3>
+                    <Input type="select" name="profession" onChange={handleChange}>
+                    <option value={"בחר"}>בחר</option>
+                        <option value={'תפקיד 1'}>תפקיד 1</option>
+                        <option value={'תפקיד 2'}>תפקיד 2</option>
+                        <option value={'תפקיד 3'}>תפקיד 3</option>
+                        <option value={'תפקיד 4'}>תפקיד 4</option>
+                        <option value={'תפקיד 5'}>תפקיד 5</option>
+                        <option value={'תפקיד 6'}>תפקיד 6</option>
+                    </Input>
               </FormGroup>
               </Col>
             </Row>
@@ -269,13 +269,19 @@ function UserEvalForm() {
               <Table bordered>
                 <thead>
                   <tr>
-                    <th>איכות הביצוע (1-5) 1-נמוך ביותר 5- גבוה ביותר</th>
-                    <th>תיאור מטלה</th>
                     <th>מספר</th>
+                    <th>תיאור מטלה</th>
+                    <th>איכות הביצוע (1-5) 1-נמוך ביותר 5- גבוה ביותר</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                    <th scope="row">1</th>
+                    <td>
+                      <FormGroup dir="rtl">
+                            <Input type="string" name="missionDesc" onChange={handleChange}/>
+                      </FormGroup>
+                    </td>
                     <td>
                       <FormGroup dir="rtl">
                             <Input type="select" name="missionEval" onChange={handleChange}>
@@ -288,12 +294,6 @@ function UserEvalForm() {
                             </Input>
                       </FormGroup>
                     </td>
-                    <td>
-                      <FormGroup dir="rtl">
-                            <Input type="string" name="missionDesc" onChange={handleChange}/>
-                      </FormGroup>
-                    </td>
-                    <th scope="row">1</th>
                   </tr>
                 </tbody>
               </Table>
@@ -301,48 +301,18 @@ function UserEvalForm() {
               <Table bordered>
                   <thead>
                     <tr>
-                      <th>ציון כולל (0-10)</th>
-                      <th>בעל משמעת עצמית</th>
-                      <th>יכולת עבודה עצמאית</th>
-                      <th>מקצועי בתחומו</th>
                       <th>יכולת איתור תקלות</th>
+                      <th>מקצועי בתחומו</th>
+                      <th>יכולת עבודה עצמאית</th>
+                      <th>בעל משמעת עצמית</th>
+                      <th>ציון כולל (0-10)</th>
                     </tr>
                   </thead>
                   <tbody>
                    <tr>
-                    <td>
-                        <FormGroup dir="rtl">
-                              <Input type="select" name="overAllScore" onChange={handleChange}>
-                              <option value={"בחר"}>בחר</option>
-                                  <option value={'0'}>0</option>
-                                  <option value={'1'}>1</option>
-                                  <option value={'2'}>2</option>
-                                  <option value={'3'}>3</option>
-                                  <option value={'4'}>4</option>
-                                  <option value={'5'}>5</option>
-                                  <option value={'6'}>6</option>
-                                  <option value={'7'}>7</option>
-                                  <option value={'8'}>8</option>
-                                  <option value={'9'}>9</option>
-                                  <option value={'10'}>10</option>
-                              </Input>
-                        </FormGroup>
-                      </td>
                       <td>
                         <FormGroup dir="rtl">
-                              <Input type="select" name="selfRestraint" onChange={handleChange}>
-                              <option value={"בחר"}>בחר</option>
-                                  <option value={'1'}>1</option>
-                                  <option value={'2'}>2</option>
-                                  <option value={'3'}>3</option>
-                                  <option value={'4'}>4</option>
-                                  <option value={'5'}>5</option>
-                              </Input>
-                        </FormGroup>
-                      </td>
-                      <td>
-                        <FormGroup dir="rtl">
-                              <Input type="select" name="canWorkAlone" onChange={handleChange}>
+                              <Input type="select" name="findingProblems" onChange={handleChange}>
                               <option value={"בחר"}>בחר</option>
                                   <option value={'1'}>1</option>
                                   <option value={'2'}>2</option>
@@ -366,7 +336,7 @@ function UserEvalForm() {
                       </td>
                       <td>
                         <FormGroup dir="rtl">
-                              <Input type="select" name="findingProblems" onChange={handleChange}>
+                              <Input type="select" name="canWorkAlone" onChange={handleChange}>
                               <option value={"בחר"}>בחר</option>
                                   <option value={'1'}>1</option>
                                   <option value={'2'}>2</option>
@@ -376,6 +346,36 @@ function UserEvalForm() {
                               </Input>
                         </FormGroup>
                       </td>
+                      <td>
+                        <FormGroup dir="rtl">
+                              <Input type="select" name="selfRestraint" onChange={handleChange}>
+                              <option value={"בחר"}>בחר</option>
+                                  <option value={'1'}>1</option>
+                                  <option value={'2'}>2</option>
+                                  <option value={'3'}>3</option>
+                                  <option value={'4'}>4</option>
+                                  <option value={'5'}>5</option>
+                              </Input>
+                        </FormGroup>
+                      </td>
+                      <td>
+                          <FormGroup dir="rtl">
+                                <Input type="select" name="overAllScore" onChange={handleChange}>
+                                <option value={"בחר"}>בחר</option>
+                                    <option value={'0'}>0</option>
+                                    <option value={'1'}>1</option>
+                                    <option value={'2'}>2</option>
+                                    <option value={'3'}>3</option>
+                                    <option value={'4'}>4</option>
+                                    <option value={'5'}>5</option>
+                                    <option value={'6'}>6</option>
+                                    <option value={'7'}>7</option>
+                                    <option value={'8'}>8</option>
+                                    <option value={'9'}>9</option>
+                                    <option value={'10'}>10</option>
+                                </Input>
+                          </FormGroup>
+                        </td>
                     </tr>
                   </tbody>
               </Table>
@@ -398,28 +398,8 @@ function UserEvalForm() {
               <Row>
                 <Col style={{textAlign: "right"}}>
                   <FormGroup dir="rtl">
-                        <h3 style={{marginBottom: "0px"}}>תאריך מילוי</h3>
-                        <Input type="string" name="writerDate" value={today} onChange={handleChange} disabled/>
-                  </FormGroup>
-                </Col>
-                <Col style={{textAlign: "right"}}>
-                  <FormGroup dir="rtl">
-                        <h3 style={{marginBottom: "0px"}}>תפקיד המעריך</h3>
-                        <Input type="select" name="writerProfession" onChange={handleChange}>
-                        <option value={"בחר"}>בחר</option>
-                        <option value={'תפקיד 1'}>תפקיד 1</option>
-                        <option value={'תפקיד 2'}>תפקיד 2</option>
-                        <option value={'תפקיד 3'}>תפקיד 3</option>
-                        <option value={'תפקיד 4'}>תפקיד 4</option>
-                        <option value={'תפקיד 5'}>תפקיד 5</option>
-                        <option value={'תפקיד 6'}>תפקיד 6</option>
-                        </Input>
-                  </FormGroup>
-                </Col>
-                <Col style={{textAlign: "right"}}>
-                  <FormGroup dir="rtl">
-                        <h3 style={{marginBottom: "0px"}}>שם המעריך</h3>
-                        <Input type="string" name="writerName" onChange={handleChange}/>
+                        <h3 style={{marginBottom: "0px"}}>מ.א. המעריך</h3>
+                        <Input type="string" name="writerId" onChange={handleChange}/>
                   </FormGroup>
                 </Col>
                 <Col style={{textAlign: "right"}}>
@@ -438,8 +418,28 @@ function UserEvalForm() {
                 </Col>
                 <Col style={{textAlign: "right"}}>
                   <FormGroup dir="rtl">
-                        <h3 style={{marginBottom: "0px"}}>מ.א. המעריך</h3>
-                        <Input type="string" name="writerId" onChange={handleChange}/>
+                        <h3 style={{marginBottom: "0px"}}>שם המעריך</h3>
+                        <Input type="string" name="writerName" onChange={handleChange}/>
+                  </FormGroup>
+                </Col>
+                <Col style={{textAlign: "right"}}>
+                  <FormGroup dir="rtl">
+                        <h3 style={{marginBottom: "0px"}}>תפקיד המעריך</h3>
+                        <Input type="select" name="writerProfession" onChange={handleChange}>
+                        <option value={"בחר"}>בחר</option>
+                        <option value={'תפקיד 1'}>תפקיד 1</option>
+                        <option value={'תפקיד 2'}>תפקיד 2</option>
+                        <option value={'תפקיד 3'}>תפקיד 3</option>
+                        <option value={'תפקיד 4'}>תפקיד 4</option>
+                        <option value={'תפקיד 5'}>תפקיד 5</option>
+                        <option value={'תפקיד 6'}>תפקיד 6</option>
+                        </Input>
+                  </FormGroup>
+                </Col>
+                <Col style={{textAlign: "right"}}>
+                  <FormGroup dir="rtl">
+                        <h3 style={{marginBottom: "0px"}}>תאריך מילוי</h3>
+                        <Input type="string" name="writerDate" value={today} onChange={handleChange} disabled/>
                   </FormGroup>
                 </Col>
               </Row>
